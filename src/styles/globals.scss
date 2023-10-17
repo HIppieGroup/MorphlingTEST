@@ -1,0 +1,12 @@
+html,
+body {
+  padding: 0;
+  margin: 0;
+  //background: var(--lightpink);
+  //color: var(--black);
+  //font-family: "Euclid Circular A", sans-serif;
+
+  &::-webkit-scrollbar {
+    display: none;
+  }
+}

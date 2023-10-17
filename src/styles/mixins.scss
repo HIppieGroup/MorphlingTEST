@@ -1,0 +1,50 @@
+@use 'sass:map';
+
+@mixin hover {
+  @media (hover: hover) {
+    &:hover {
+      @content;
+    }
+  }
+
+  @media (hover: none) {
+    &:active {
+      @content;
+    }
+  }
+}
+
+
+@mixin media-cursor {
+  @media (hover: hover) and (pointer: fine) {
+    @content;
+  }
+}
+
+@mixin media-touch {
+  @media (hover: none) and (pointer: coarse) {
+    @content;
+  }
+}
+
+$breakpoints: (
+  m: 834,
+  s: 640,
+) !default;
+
+$media-direction: max !default;
+
+@function getMediaSize($direction, $screen) {
+  @if ($direction == min) {
+    @return map.get($breakpoints,  $screen) - 1;
+  }
+
+  @return map.get($breakpoints,  $screen);
+}
+
+@mixin media($screen, $direction: max) {
+  @media (#{$direction}-width: getMediaSize($breakpoints,  $screen) + 'px') {
+    @content;
+  }
+}
+

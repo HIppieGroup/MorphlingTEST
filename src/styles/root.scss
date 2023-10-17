@@ -1,0 +1,8 @@
+:root {
+
+  --gfs: 1440;
+
+  @include media(s) {
+    --gfs: 360;
+  }
+}

@@ -1,0 +1,12 @@
+/* SCSS FUNCTIONS */
+@function clampSize($min, $max) {
+  @return max(#{$min}px,#{$max});
+}
+
+@function get-real-vh($vh) {
+  @return calc(var(--vh, 1vh) * #{$vh});
+}
+
+@function vw($pixels) {
+  @return calc(((#{$pixels} / var(--gfs)) * 100) * 1vw);
+}

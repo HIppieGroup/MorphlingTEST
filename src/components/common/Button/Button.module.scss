@@ -1,0 +1,58 @@
+.root {
+  position: relative;
+  display: inline-flex;
+}
+
+.inline {
+  display: initial;
+}
+
+.underline {
+  text-decoration: none;
+  background-image: linear-gradient(currentColor, currentColor);
+  background-position: 0 100%;
+  background-repeat: no-repeat;
+  background-size: 100% 1px;
+  transition: background-size .3s;
+
+  @include hover {
+    background-position: 100% 100%;
+    background-size: 0 1px;
+  }
+}
+
+.disabled {
+  pointer-events: none;
+  opacity: 0.2;
+}
+
+.stylized {
+  justify-content: center;
+  align-items: center;
+  width: vw(225);
+  height: vw(50);
+  background: var(--coral);
+  color: var(--white);
+  font: var(--p-normal);
+  border-radius: vw(100);
+  transition: transform 0.2s;
+
+  @include media(m) {
+    width: vw(219);
+  }
+}
+
+.stylized.disabled {
+  opacity: 1;
+  background: var(--pink);
+}
+
+.transition {
+  &-opacity {
+    transition: opacity 0.3s;
+  }
+
+  &-background {
+    transition: background 0.3s;
+  }
+}

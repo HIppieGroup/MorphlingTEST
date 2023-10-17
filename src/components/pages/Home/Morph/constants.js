@@ -1,0 +1,1 @@
+export const IS_CURSOR_INTO_MORPH = 'IS_CURSOR_INTO_MORPH';
