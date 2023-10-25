@@ -12,15 +12,18 @@
   "dependencies": {
     "@studio-freight/react-lenis": "^0.0.30",
     "classnames": "^2.3.2",
+    "d3-path": "^3.1.0",
     "gsap": "^3.12.2",
     "is-clockwise": "2.0.2",
     "lodash.debounce": "^4.0.8",
+    "lodash.sortby": "^4.7.0",
     "next": "13.4.12",
     "prop-types": "^15.8.1",
     "react": "18.2.0",
     "react-dom": "18.2.0",
     "react-transition-group": "^4.4.5",
-    "simplex-noise": "2.4.0"
+    "simplex-noise": "2.4.0",
+    "svg-path-properties": "^1.2.0"
   },
   "devDependencies": {
     "@svgr/webpack": "^8.1.0",

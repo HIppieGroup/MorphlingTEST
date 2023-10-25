@@ -1,13 +1,14 @@
-import React, {useEffect, useRef} from 'react';
+import React, { useEffect, useRef } from 'react';
 import PropTypes from 'prop-types';
 import cx from 'classnames';
 import { ellipse, figures } from './Morph/figures';
 import isClockwise from 'is-clockwise';
 
 import s from './Home.module.scss';
-import Morphling from "pages/Home/Morph/Morphling";
+import Morphling from 'pages/Home/Morph/Morphling';
+import Morph2 from 'pages/Home/Morph2';
 
-const normolizeFigure = (points) => {
+const normolizeFigure = points => {
   let min = Math.atan2(points[0][0], points[0][1]);
   let index = 0;
   const xs = [];
@@ -32,48 +33,41 @@ const normolizeFigure = (points) => {
     newPoints.reverse();
   }
   return newPoints;
-}
+};
 
 const Home = ({ className }) => {
   const ref = useRef();
   const Morph = useRef();
 
-  useEffect(() => {
-    Morph.current = new Morphling();
-
-    // const { shapes } = this.props;
-
-    Morph.current.init('canvas');
-    Morph.current.setFigures(figures);
-
-    Morph.current.normolizeFigure = normolizeFigure;
-
-    Morph.current.setInitFill('blue');
-    // Morph.setFormFullscreenNow();
-    // Morph.setElipseFigure(normolizeFigure(ellipse));
-    Morph.current.render();
-    // Morph.getIsCursorIntoPoly(this.handleIsInt);
-
-    Morph.current.restoreTheOriginalForm();
-    Morph.current.moveCenter(window.innerWidth / 2, window.innerHeight / 2);
-
-    console.log(Morph)
-  }, []);
+  // useEffect(() => {
+  //   Morph.current = new Morphling();
+  //
+  //   // const { shapes } = this.props;
+  //
+  //   Morph.current.init('canvas');
+  //   Morph.current.setFigures(figures);
+  //
+  //   Morph.current.normolizeFigure = normolizeFigure;
+  //
+  //   Morph.current.setInitFill('blue');
+  //   // Morph.setFormFullscreenNow();
+  //   // Morph.setElipseFigure(normolizeFigure(ellipse));
+  //   Morph.current.render();
+  //   // Morph.getIsCursorIntoPoly(this.handleIsInt);
+  //
+  //   Morph.current.restoreTheOriginalForm();
+  //   Morph.current.moveCenter(window.innerWidth / 2, window.innerHeight / 2);
+  //
+  //   console.log(Morph);
+  // }, []);
 
   return (
     <div className={cx(s.root, className)}>
-
-      <div className={s.btns}>
-        <button onClick={() => {
-          Morph.current?.setFormFullscreen(10) }
-        }>open</button>
-        <button onClick={() => {
-          Morph.current?.restoreTheOriginalForm(10) }
-        }>close</button>
-      </div>
-
-      <canvas ref={ref} id="canvas" />
-      <img className={s.testImg} src="https://images.prom.ua/1065621053_vafelnaya-kartinka-lyubov.jpg" alt=""/>
+      {/*<canvas*/}
+      {/*  ref={ref}*/}
+      {/*  id="canvas"*/}
+      {/*/>*/}
+      <Morph2 />
     </div>
   );
 };
